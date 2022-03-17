@@ -166,6 +166,12 @@ class AlbumSearchTool:
             'normalizedName = %s', normalizedName
         )
 
+        # Chop off anything after the first colon
+        normalizedName = normalizedName.partition(':')[0]
+        log.debug(
+            'chopping post-colon subtitles = %s', normalizedName
+        )
+
         # Chop off "unabridged"
         normalizedName = re.sub(
             r"[\(\[].*?[\)\]]", "", normalizedName
